@@ -67,10 +67,12 @@ for data in country_data:
     zone = min(distances, key=lambda x: distances[x])
     selected_countries[zone].append(data)
 
-# Debug: Validate country codes
-#selected_codes = [data['country'] for data in country_selected]
-selected_codes = [data for data in country_data]
-print("Selected country codes:", selected_codes)
+print(selected_countries)
+output = {
+    "selected_countries": selected_countries
+}
+
+print(output)
 
 # Create choropleth map
 fig = go.Figure()
