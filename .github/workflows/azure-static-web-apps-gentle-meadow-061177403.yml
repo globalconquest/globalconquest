@@ -38,11 +38,11 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_MEADOW_061177403 }}
           action: "upload"
-          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
-          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
-          app_location: "/" # App source code path
-          api_location: "" # Api source code path - optional
-          output_location: "/" # Built app content directory - optional
+          # 👇 important bits for plain static files
+          app_location: "/"          # your index.html is at the repo root
+          output_location: "/"       # serve files directly, no "dist" folder
+          app_build_command: ""      # disables Oryx build step
+          api_location: ""           # no backend API
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
@@ -56,3 +56,4 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
