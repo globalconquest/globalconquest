@@ -24,12 +24,12 @@ jobs:
 
     - name: Run Python script
       run: |
-        python generate_html.py
+        python generate_map.py
 
     - name: Commit changes
       run: |
         git config user.name "github-actions"
         git config user.email "github-actions@github.com"
-        git add generated.html
+        git add world_map.html
         git commit -m "Update generated HTML" || echo "No changes to commit"
         git push
