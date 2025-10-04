@@ -34,13 +34,7 @@ jobs:
         git commit -m "Update generated HTML" || echo "No changes to commit"
         git push https://globalconquest:${{ secrets.PAT_TOKEN }}@github.com/globalconquest/globalconquest.git HEAD:main
 
-    - name: Debug Vercel Token Scope
-      run: |
-        npm install -g vercel
-        vercel whoami --token ${{ secrets.VERCEL_TOKEN }} || true
-
     - name: Deploy to Vercel
       run: |
         npm install -g vercel
-        vercel whoami --token ${{ secrets.VERCEL_TOKEN }}
         vercel --prod --token ${{ secrets.VERCEL_TOKEN }} --yes
