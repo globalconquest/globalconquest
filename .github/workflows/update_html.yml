@@ -32,4 +32,4 @@ jobs:
         git config user.email "github-actions@github.com"
         git add world_map.html
         git commit -m "Update generated HTML" || echo "No changes to commit"
-        git push
+        git push https://globalconquest:${{ secrets.PAT_TOKEN }}@github.com/globalconquest/globalconquest.git HEAD:main
