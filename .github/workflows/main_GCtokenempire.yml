@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://mcr.microsoft.com/
-        username: ${{ secrets.AzureAppService_ContainerUsername_01ef993d41e04f82b7eece14dc1219f7 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_052f3a0526ad42b7b3736d52fd9b1912 }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_8350184b0a6840598b224b52a56442f0 }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_e3af644f8470463dadcce22ce2c9d59a }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_01ef993d41e04f82b7eece14dc1219f7 }}/appsvc/staticsite:${{ github.sha }}
+        tags: mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_8350184b0a6840598b224b52a56442f0 }}/appsvc/staticsite:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'GCtokenempire'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b114a467fcc04565b150b5cf64e0d87f }}
-        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_01ef993d41e04f82b7eece14dc1219f7 }}/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_5568aaff200c4236b78a8a31d19caeb8 }}
+        images: 'mcr.microsoft.com/${{ secrets.AzureAppService_ContainerUsername_8350184b0a6840598b224b52a56442f0 }}/appsvc/staticsite:${{ github.sha }}'
