@@ -44,6 +44,7 @@ jobs:
           output_location: "/"       # serve files directly, no "dist" folder
           app_build_command: ""      # disables Oryx build step
           api_location: ""           # no backend API
+          skip_app_build: true       # 👈 key setting: disables Oryx build
           github_id_token: ${{ steps.idtoken.outputs.result }}
           ###### End of Repository/Build Configurations ######
 
@@ -57,3 +58,4 @@ jobs:
         uses: Azure/static-web-apps-deploy@v1
         with:
           action: "close"
+
