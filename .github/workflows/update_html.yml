@@ -2,7 +2,7 @@ name: Generate HTML
 
 on:
   schedule:
-    - cron: "*/10 * * * *"  # runs every 10 minutes
+    - cron: "*/2 * * * *"  # runs every 10 minutes
   workflow_dispatch: # allows manual run
 
 jobs:
